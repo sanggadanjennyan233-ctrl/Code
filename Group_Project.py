@@ -1,18 +1,13 @@
 import tkinter as tk
 from tkinter import messagebox, ttk
 
-# -------------------------------
-# Node class for linked list
-# -------------------------------
+
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
 
 
-# -------------------------------
-# LinkedList class for book storage
-# -------------------------------
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -64,11 +59,8 @@ class LinkedList:
             current = current.next
         return False
 
-
-# -------------------------------
-# GUI Class
-# -------------------------------
-class LibrarySystemUI:
+-
+class LibrarySystem:
     def __init__(self, master):
         self.master = master
         self.master.title("Library System (Linked List)")
@@ -108,7 +100,7 @@ class LibrarySystemUI:
         tk.Button(self.frame_buttons, text="Delete", command=self.delete_book).pack(side="left", padx=5)
         tk.Button(self.frame_buttons, text="Exit", command=master.quit).pack(side="right", padx=5)
 
-        # --- Table (Treeview) ---
+       
         columns = ("Title", "Author", "Year", "ISBN")
         self.tree = ttk.Treeview(self.frame_table, columns=columns, show="headings")
         for col in columns:
@@ -116,9 +108,7 @@ class LibrarySystemUI:
             self.tree.column(col, width=150)
         self.tree.pack(fill="both", expand=True)
 
-    # -------------------------------
-    # Button Methods
-    # -------------------------------
+
     def add_book(self):
         title = self.title_entry.get().strip()
         author = self.author_entry.get().strip()
@@ -171,10 +161,8 @@ class LibrarySystemUI:
         self.isbn_entry.delete(0, tk.END)
 
 
-# -------------------------------
-# Main Program
-# -------------------------------
 if __name__ == "__main__":
     root = tk.Tk()
     app = LibrarySystemUI(root)
     root.mainloop()
+
