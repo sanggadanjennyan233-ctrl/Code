@@ -59,8 +59,8 @@ class LinkedList:
             current = current.next
         return False
 
--
-class LibrarySystem:
+
+class LibrarySystemUI:
     def __init__(self, master):
         self.master = master
         self.master.title("Library System (Linked List)")
@@ -100,7 +100,7 @@ class LibrarySystem:
         tk.Button(self.frame_buttons, text="Delete", command=self.delete_book).pack(side="left", padx=5)
         tk.Button(self.frame_buttons, text="Exit", command=master.quit).pack(side="right", padx=5)
 
-       
+        # --- Table (Treeview) ---
         columns = ("Title", "Author", "Year", "ISBN")
         self.tree = ttk.Treeview(self.frame_table, columns=columns, show="headings")
         for col in columns:
@@ -108,7 +108,9 @@ class LibrarySystem:
             self.tree.column(col, width=150)
         self.tree.pack(fill="both", expand=True)
 
-
+    # -------------------------------
+    # Button Methods
+    # -------------------------------
     def add_book(self):
         title = self.title_entry.get().strip()
         author = self.author_entry.get().strip()
@@ -165,4 +167,3 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = LibrarySystemUI(root)
     root.mainloop()
-
